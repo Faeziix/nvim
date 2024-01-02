@@ -8,7 +8,10 @@ end)
 
 mason.setup {}
 require("mason-lspconfig").setup {
-  ensure_installed = {},
+  ensure_installed = {
+    "rust_analyzer",
+    "tsserver",
+  },
   automatic_installation = true,
   handlers = {
     lsp_zero.default_setup,

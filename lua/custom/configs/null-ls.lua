@@ -20,6 +20,9 @@ local sources = {
   -- Shell
   b.formatting.shfmt,
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+
+  -- Rust
+  b.formatting.rustfmt,
 }
 
 null_ls.setup {

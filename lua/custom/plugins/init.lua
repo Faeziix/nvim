@@ -43,14 +43,14 @@ local plugins = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     lazy = false,
     config = function()
       require "custom.configs.null-ls"
     end,
   },
   { "wakatime/vim-wakatime", lazy = false },
-  { "pangloss/vim-javascript", lazy = false },
+  -- { "pangloss/vim-javascript", lazy = false },
   {
     "nvim-treesitter/nvim-treesitter",
     init = function()
@@ -64,6 +64,10 @@ local plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
+      vim.filetype.add {
+        extension = { mdx = "mdx" },
+      }
+      vim.treesitter.language.register("mdx", "markdown")
     end,
   },
   {
