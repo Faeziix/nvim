@@ -55,14 +55,6 @@ local plugins = {
     lazy = false,
   },
   {
-    "ThePrimeagen/harpoon",
-    keys = { "<A-1>", "<A-2>", "<A-3>", "<A-4>", "<A-a>", "<A-S-h>" },
-    event = "VeryLazy",
-    init = function()
-      require("harpoon").setup {}
-    end,
-  },
-  {
     "echasnovski/mini.nvim",
     version = false,
     event = "VeryLazy",
