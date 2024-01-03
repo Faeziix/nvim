@@ -13,12 +13,6 @@ M.general = {
     ["<C-f>"] = { "<C-f>zz", "Go full page up" },
     ["<C-b>"] = { "<C-b>zz", "Go full page down" },
 
-    ["gl"] = { "vim.diagnostic.open_float()", "Open diagnostic" },
-    ["<leader>gs"] = { ":Git<CR>", "Open Git Fugitive" },
-    ["<leader>gc"] = { ":Telescope git_branches<CR>", "Open git branch" },
-    ["<leader>gj"] = { ":diffget //2<CR>", "accept HEAD" },
-    ["<leader>gk"] = { ":diffget //3<CR>", "accept New Change" },
-
     ["<leader>q"] = { ":q<CR>" },
     ["<leader><leader>"] = { ":w<CR>" },
     ["<leader>tt"] = {

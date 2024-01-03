@@ -18,10 +18,6 @@ local plugins = {
       }
     end,
   },
-  {
-    "tpope/vim-fugitive",
-    lazy = false,
-  },
   -- {
   --   "nvimtools/none-ls.nvim",
   --   lazy = false,
