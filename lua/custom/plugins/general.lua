@@ -22,46 +22,15 @@ local plugins = {
     "tpope/vim-fugitive",
     lazy = false,
   },
-  {
-    "williamboman/mason.nvim",
-    rm_default_opts = true,
-  },
-  -- Override plugin definition options
-  {
-    "neovim/nvim-lspconfig",
-    rm_default_opts = true,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    lazy = false,
-    config = function()
-      require "custom.configs.null-ls"
-    end,
-  },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "custom.configs.null-ls"
+  --   end,
+  -- },
   { "wakatime/vim-wakatime", lazy = false },
   -- { "pangloss/vim-javascript", lazy = false },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    init = function()
-      require("core.utils").lazy_load "nvim-treesitter"
-    end,
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
-    opts = function()
-      return require "custom.configs.treesitter"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      require("nvim-treesitter.configs").setup(opts)
-      vim.filetype.add {
-        extension = { mdx = "mdx" },
-      }
-      vim.treesitter.language.register("mdx", "markdown")
-    end,
-  },
   {
     "numToStr/Comment.nvim",
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
@@ -102,60 +71,6 @@ local plugins = {
     event = "VeryLazy",
     init = function()
       require("harpoon").setup {}
-    end,
-  },
-  {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    keys = {
-      {
-        -- Customize or remove this keymap to your liking
-        "<leader>f",
-        function()
-          require("conform").format { async = true, lsp_fallback = true }
-        end,
-        mode = "",
-        desc = "Format buffer",
-      },
-    },
-    -- Everything in opts will be passed to setup()
-    opts = {
-      -- Define your formatters
-      formatters_by_ft = {
-        lua = { "stylua" },
-        python = { "isort", "black" },
-        javascript = { { "prettierd", "prettier" } },
-      },
-      -- Set up format-on-save
-      format_on_save = { timeout_ms = 500, lsp_fallback = true },
-      -- Customize formatters
-      formatters = {
-        shfmt = {
-          prepend_args = { "-i", "2" },
-        },
-      },
-    },
-    init = function()
-      -- If you want the formatexpr, here is the place to set it
-      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-    end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
-    cmd = "Telescope",
-    init = function()
-      require("core.utils").load_mappings "telescope"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "telescope")
-      local telescope = require "telescope"
-      telescope.setup(opts)
-      -- load extensions
-      for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-      end
     end,
   },
   {
