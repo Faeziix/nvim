@@ -4,17 +4,11 @@ end
 
 return {
   {
-    "neovim/nvim-lspconfig",
-    rm_default_opts = true,
+    "VonHeikemen/lsp-zero.nvim",
     dependencies = {
       {
-        "williamboman/mason-lspconfig.nvim",
-      },
-      {
         "williamboman/mason.nvim",
-        rm_default_opts = true,
         opts = {
-
           ensure_installed = {
             "rust_analyzer",
             "tsserver",
@@ -24,18 +18,33 @@ return {
             "vim-language-server",
           },
           automatic_installation = true,
-          -- handlers = {
-          --   lsp_zero.default_setup,
-          -- },
         },
       },
+      "neovim/nvim-lspconfig",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+      { "lukas-reineke/lsp-format.nvim", config = true },
     },
-    config = function()
-      local lsp_zero = require "lsp_zero"
+    init = function()
+      local lsp_zero = require "lsp-zero"
 
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps { buffer = bufnr }
       end)
+
+      require("mason").setup {}
+      require("mason-lspconfig").setup {
+        handlers = {
+          lsp_zero.default_setup,
+        },
+      }
 
       au("LspAttach", "*", function(a)
         vim.lsp.get_client_by_id(a.data.client_id).server_capabilities.semanticTokensProvider = nil
@@ -85,8 +94,6 @@ return {
           prefix = "",
         },
       }
-    end,
-    init = function()
       local map = require "custom.mappings"
       map.lsp = {
         n = {

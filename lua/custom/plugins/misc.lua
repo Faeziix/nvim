@@ -63,11 +63,6 @@ local plugins = {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter-context",
-    after = "nvim-treesitter",
-    event = "BufRead",
-  },
-  {
     "echasnovski/mini.nvim",
     version = false,
     event = "VeryLazy",
@@ -96,9 +91,6 @@ local plugins = {
   {
     "mattn/emmet-vim",
     ft = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
-  },
-  {
-    "rafamadriz/friendly-snippets",
   },
 }
 
