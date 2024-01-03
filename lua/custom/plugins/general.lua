@@ -18,13 +18,6 @@ local plugins = {
       }
     end,
   },
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require "custom.configs.null-ls"
-  --   end,
-  -- },
   { "wakatime/vim-wakatime", lazy = false },
   -- { "pangloss/vim-javascript", lazy = false },
   {
@@ -103,6 +96,9 @@ local plugins = {
   {
     "mattn/emmet-vim",
     ft = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
+  },
+  {
+    "rafamadriz/friendly-snippets",
   },
 }
 
