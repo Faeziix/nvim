@@ -19,7 +19,6 @@ local plugins = {
     end,
   },
   { "wakatime/vim-wakatime", lazy = false },
-  -- { "pangloss/vim-javascript", lazy = false },
   {
     "numToStr/Comment.nvim",
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",

@@ -26,6 +26,18 @@ return {
       javascriptreact = { { "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },
       html = { { "prettierd", "prettier" } },
+      markdown = {{
+        "markdownlint",
+        "mdformat",
+        "cbfmt",
+        "prettierd",
+      }},
+      mdx = {{
+        "markdownlint",
+        "mdformat",
+        "cbfmt",
+        "prettierd",
+      }},
       ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
     },

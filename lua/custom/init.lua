@@ -6,12 +6,6 @@ vim.opt.showmatch = true
 vim.opt.relativenumber = true
 vim.opt.swapfile = false
 
--- vim.filetype.add {
---   extension = {
---     mdx = "mdx",
---   },
--- }
-
 vim.filetype.add {
   extension = { mdx = "mdx" },
 }

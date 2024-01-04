@@ -45,24 +45,6 @@ M.general = {
   },
 }
 
-M.tabufline = {
-  n = {
-    ["<A-l>"] = {
-      function()
-        require("nvchad.tabufline").tabuflineNext()
-      end,
-      "Goto next buffer",
-    },
-
-    ["<A-h>"] = {
-      function()
-        require("nvchad.tabufline").tabuflinePrev()
-      end,
-      "Goto prev buffer",
-    },
-  },
-}
-
 M.nvterm = {
   n = {
     ["<A-t>"] = {
@@ -85,16 +67,6 @@ M.nvterm = {
 M.telescope = {
   n = {
     ["<leader>F"] = { "<cmd> Telescope recents <CR>", "Find files" },
-    -- ["<leader>F"] = {
-    --   function()
-    --     local cmd = "git ls-files --full-name -z | xargs -0 -I{} -- stat -c'%Y %n' {} | sort -k1,1nr | cut -d' ' -f2-"
-    --     require("telescope.builtin").find_files {
-    --       prompt_title = "Git Files",
-    --       find_command = { "sh", "-c", cmd },
-    --     }
-    --   end,
-    --   "Find Git files",
-    -- },
   },
 }
 

@@ -34,6 +34,7 @@ return {
     },
     init = function()
       local lsp_zero = require "lsp-zero"
+      vim.g.lsp_zero_extend_lspconfig = 0
 
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps { buffer = bufnr }
