@@ -4,6 +4,12 @@ return {
   cmd = "Telescope",
   init = function()
     require("core.utils").load_mappings "telescope"
+    local map = require "custom.mappings"
+    map.telescope = {
+      n = {
+        ["<leader>F"] = { "<cmd> Telescope recents <CR>", "Find files" },
+      },
+    }
   end,
   config = function(_, opts)
     dofile(vim.g.base46_cache .. "telescope")

@@ -1,6 +1,8 @@
 local M = {}
 
-M.disabled = { n = {} }
+M.disabled = {
+  n = {},
+}
 
 M.general = {
   n = {
@@ -61,12 +63,6 @@ M.nvterm = {
       end,
       "Toggle horizontal term",
     },
-  },
-}
-
-M.telescope = {
-  n = {
-    ["<leader>F"] = { "<cmd> Telescope recents <CR>", "Find files" },
   },
 }
 
