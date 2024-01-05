@@ -2,6 +2,30 @@ local au = function(events, ptn, cb)
   vim.api.nvim_create_autocmd(events, { pattern = ptn, [type(cb) == "function" and "callback" or "command"] = cb })
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "LSP actions",
+  callback = function(event)
+    local opts = { buffer = event.buf }
+    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+    vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+    vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+    vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+    vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+    vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+    vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+    vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+    vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+    vim.keymap.set("n", "<leader>ds", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", opts)
+    vim.keymap.set("n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
+    vim.keymap.set("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line' })<cr>", opts)
+    vim.keymap.set("n", "<leader>dw", "<cmd>lua vim.diagnostic.setqflist()<cr>", opts)
+  end,
+})
+
 return {
   {
     "VonHeikemen/lsp-zero.nvim",
@@ -34,7 +58,7 @@ return {
     },
     init = function()
       local lsp_zero = require "lsp-zero"
-      vim.g.lsp_zero_extend_lspconfig = 0
+      lsp_zero.extend_lspconfig()
 
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps { buffer = bufnr }
@@ -93,31 +117,6 @@ return {
           source = "always",
           header = "",
           prefix = "",
-        },
-      }
-      local map = require "custom.mappings"
-      map.lsp = {
-        n = {
-          ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Doc" },
-          ["<leader>ds"] = { "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", "Show line diagnostics" },
-          ["<leader>dl"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Set loclist" },
-          ["<leader>do"] = { "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line' })<cr>", "Open diagnostic" },
-          ["<leader>dw"] = { "<cmd>lua vim.diagnostic.setqflist()<cr>", "Set qflist" },
-          ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
-          ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
-          ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to implementation" },
-          ["go"] = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
-          ["gr"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "Go to references" },
-          ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-          ["<F2>"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-          ["<F3>"] = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format the file (Async)" },
-          ["<F4>"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-          ["gl"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open floating menu" },
-          ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to next diagnostic" },
-          ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to prev diagnostic" },
-        },
-        x = {
-          ["<F3>"] = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "" },
         },
       }
     end,
