@@ -8,14 +8,17 @@ M.ui = {
     CursorLine = {
       bg = "#181818",
     },
-    -- Visual = {
-    --   bg = "#333333",
-    -- },
+    Visual = {
+      bg = "#333333",
+    },
     IndentBlanklineContextChar = {
       fg = "#4b5263",
     },
     IndentBlanklineContextStart = {
       bg = "#1b1b1b",
+    },
+    Comment = {
+      fg = "#777777",
     },
   },
 }

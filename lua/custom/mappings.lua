@@ -17,12 +17,6 @@ M.general = {
 
     ["<leader>q"] = { ":q<CR>" },
     ["<leader><leader>"] = { ":w<CR>" },
-    ["<leader>tt"] = {
-      function()
-        require("base46").toggle_transparency()
-      end,
-      "toggle transparency",
-    },
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
   },
   o = {
@@ -33,17 +27,6 @@ M.general = {
   },
   v = {
     ["<Tab>"] = { "%", "Go to other pair" },
-  },
-  i = {
-    ["<Tab>"] = { "<Tab>", "Indent" },
-
-    ["<C-k>"] = {
-      function()
-        vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
-      end,
-      "Copilot Accept",
-      { replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
-    },
   },
 }
 

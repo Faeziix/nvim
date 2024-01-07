@@ -2,17 +2,6 @@ local au = function(events, ptn, cb)
   vim.api.nvim_create_autocmd(events, { pattern = ptn, [type(cb) == "function" and "callback" or "command"] = cb })
 end
 
-local function table_combine(t1, t2)
-  local new_table = {}
-  for k, v in pairs(t1) do
-    new_table[k] = v
-  end
-  for k, v in pairs(t2) do
-    new_table[k] = v
-  end
-  return new_table
-end
-
 return {
   "neovim/nvim-lspconfig",
   event = "BufReadPre",
@@ -91,12 +80,9 @@ return {
         vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
         vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
         vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-        vim.keymap.set("n", "<leader>ds", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", opts)
-        vim.keymap.set("n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
-        vim.keymap.set("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line' })<cr>", opts)
-        vim.keymap.set("n", "<leader>dw", "<cmd>lua vim.diagnostic.setqflist()<cr>", opts)
       end,
     })
+
     au("LspAttach", "*", function(a)
       vim.lsp.get_client_by_id(a.data.client_id).server_capabilities.semanticTokensProvider = nil
     end)

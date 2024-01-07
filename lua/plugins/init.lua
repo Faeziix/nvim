@@ -1,5 +1,6 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
+
 local default_plugins = {
 
   "nvim-lua/plenary.nvim",
@@ -262,7 +263,6 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
-
 }
 
 local config = require("core.utils").load_config()
