@@ -26,23 +26,21 @@ return {
       javascriptreact = { { "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },
       html = { { "prettierd", "prettier" } },
-      markdown = {{
+      markdown = { {
         "markdownlint",
         "mdformat",
         "cbfmt",
         "prettierd",
-      }},
-      mdx = {{
+      } },
+      mdx = { {
         "markdownlint",
         "mdformat",
         "cbfmt",
         "prettierd",
-      }},
+      } },
       ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
     },
-    -- Set up format-on-save
-    format_on_save = { timeout_ms = 500, lsp_fallback = true },
     -- Customize formatters
     formatters = {
       shfmt = {

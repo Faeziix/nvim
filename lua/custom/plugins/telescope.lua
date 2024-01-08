@@ -7,7 +7,8 @@ return {
     local map = require "custom.mappings"
     map.telescope = {
       n = {
-        ["<leader>F"] = { "<cmd> Telescope recents <CR>", "Find files" },
+        ["<leader>F"] = { ":Telescope recents <CR>", "Find files" },
+        ["<leader>fp"] = { ":Telescope projects<CR>", "Search Projects" },
       },
     }
   end,
@@ -16,6 +17,7 @@ return {
     local telescope = require "telescope"
     telescope.setup(opts)
     -- load extensions
+    telescope.load_extension "projects"
     for _, ext in ipairs(opts.extensions_list) do
       telescope.load_extension(ext)
     end

@@ -74,6 +74,26 @@ local plugins = {
     "mattn/emmet-vim",
     ft = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
   },
+
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  },
+  {
+    "vigoux/notifier.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("notifier").setup {
+        -- You configuration here
+      }
+    end,
+  },
 }
 
 return plugins
