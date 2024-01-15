@@ -50,12 +50,37 @@ return {
             capabilities = lsp_capabilities,
           }
         end,
+        ["lua_ls"] = function()
+          lspconfig.lua_ls.setup {
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" },
+                },
+              },
+            },
+          }
+        end,
         ["tsserver"] = function()
           lspconfig.tsserver.setup {
             capabilities = lsp_capabilities,
             settings = {
               completions = {
                 completeFunctionCalls = true,
+              },
+            },
+          }
+        end,
+        ["tailwindcss"] = function()
+          print "tailwindcss"
+          lspconfig.tailwindcss.setup {
+            settings = {
+              tailwindCSS = {
+                experimental = {
+                  classRegex = {
+                    ".*style",
+                  },
+                },
               },
             },
           }

@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "kanagawa",
+  theme = "ayu_dark",
   transparency = true,
   hl_override = {
     CursorLine = {
@@ -11,12 +11,12 @@ M.ui = {
     Visual = {
       bg = "#333333",
     },
-    IndentBlanklineContextChar = {
-      fg = "#4b5263",
-    },
-    IndentBlanklineContextStart = {
-      bg = "#1b1b1b",
-    },
+    -- IndentBlanklineContextChar = {
+    --   fg = "#4b5263",
+    -- },
+    -- IndentBlanklineContextStart = {
+    --   bg = "#1b1b1b",
+    -- },
     Comment = {
       fg = "#777777",
     },
