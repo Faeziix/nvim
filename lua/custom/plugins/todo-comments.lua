@@ -13,8 +13,8 @@ return {
     map.todo_comments = {
       n = {
         ["<leader>tqf"] = {"<cmd>TodoQuickFix<cr>", "TodoQuickFix"},
-        ["<leader>Tqt"] = {"<cmd>TodoTelescope<cr>", "TodoTelescope"},
-        ["<leader>Tqo"] = {"<cmd>TodoTrouble<cr>", "TodoTrouble"},
+        ["<leader>tqt"] = {"<cmd>TodoTelescope<cr>", "TodoTelescope"},
+        ["<leader>tqo"] = {"<cmd>TodoTrouble<cr>", "TodoTrouble"},
       }
     }
   end

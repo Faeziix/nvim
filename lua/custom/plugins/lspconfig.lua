@@ -152,10 +152,29 @@ return {
       float = {
         border = "rounded",
         source = "always",
-        header = "",
-        prefix = "",
+        severity_sort = true,
       },
     }
+
+    local function border(hl_name)
+      return {
+        { "╭", hl_name },
+        { "─", hl_name },
+        { "╮", hl_name },
+        { "│", hl_name },
+        { "╯", hl_name },
+        { "─", hl_name },
+        { "╰", hl_name },
+        { "│", hl_name },
+      }
+    end
+
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = opts.border or border "FloatBorder"
+      return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
   end,
   -- init = function()
   --   local map = require "custom.mappings"

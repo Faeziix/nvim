@@ -184,13 +184,35 @@ local default_plugins = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "dmitmel/cmp-cmdline-history",
+        "hrsh7th/cmp-emoji",
+        "jcha0713/cmp-tw2css",
       },
     },
     opts = function()
       return require "plugins.configs.cmp"
     end,
     config = function(_, opts)
-      require("cmp").setup(opts)
+      local cmp = require "cmp"
+      cmp.setup(opts)
+
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "buffer" },
+        }),
+      })
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline_history" },
+          { name = "cmdline" },
+        }),
+      })
     end,
   },
 

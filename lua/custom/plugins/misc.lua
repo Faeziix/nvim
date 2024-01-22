@@ -72,7 +72,10 @@ local plugins = {
   },
   {
     "mattn/emmet-vim",
-    ft = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
+    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
+    init = function()
+      vim.g.user_emmet_leader_key = "<C-Z>"
+    end,
   },
 
   {
