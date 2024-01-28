@@ -16,6 +16,11 @@ M.general = {
     ["<C-b>"] = { "<C-b>zz", "Go full page down" },
 
     ["<leader>q"] = { ":q<CR>" },
+    ["<leader>a"] = {
+      function()
+        require("custom.function.toggle_qf").toggle_qf()
+      end,
+    },
     ["<leader><leader>"] = { ":w<CR>" },
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
   },

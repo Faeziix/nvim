@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "ayu_dark",
+  theme = "jellybeans",
   transparency = true,
   hl_override = {
     CursorLine = {
@@ -19,6 +19,9 @@ M.ui = {
     -- },
     Comment = {
       fg = "#777777",
+    },
+    LineNr = {
+      fg = "#6b7273",
     },
   },
 }

@@ -153,6 +153,8 @@ return {
         border = "rounded",
         source = "always",
         severity_sort = true,
+        header = "",
+        prefix = "",
       },
     }
 
