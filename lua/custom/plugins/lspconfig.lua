@@ -72,7 +72,6 @@ return {
           }
         end,
         ["tailwindcss"] = function()
-          print "tailwindcss"
           lspconfig.tailwindcss.setup {
             settings = {
               tailwindCSS = {

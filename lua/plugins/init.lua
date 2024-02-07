@@ -199,9 +199,9 @@ local default_plugins = {
 
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
+        sources = cmp.config.sources {
           { name = "buffer" },
-        }),
+        },
       })
 
       cmp.setup.cmdline(":", {
@@ -209,8 +209,8 @@ local default_plugins = {
         sources = cmp.config.sources({
           { name = "path" },
         }, {
-          { name = "cmdline_history" },
           { name = "cmdline" },
+          -- { name = "cmdline_history" },
         }),
       })
     end,

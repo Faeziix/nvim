@@ -9,6 +9,10 @@ return {
       n = {
         ["<leader>F"] = { ":Telescope recents <CR>", "Find files" },
         ["<leader>fp"] = { ":Telescope projects<CR>", "Search Projects" },
+        ["<leader>fq"] = { ":Telescope quickfix<CR>", "Search Quickfix" },
+        ["<leader>fl"] = { ":Telescope loclist<CR>", "Search Location List" },
+        ["<leader>fs"] = { ":Telescope spell_suggest<CR>", "Search Spelling Suggestions" },
+        ["<leader>fo"] = { ":Telescope oldfiles<CR>", "Search Oldfiles" },
       },
     }
   end,

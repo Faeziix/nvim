@@ -97,6 +97,14 @@ local plugins = {
       }
     end,
   },
+  {
+    "tpope/vim-unimpaired",
+    event = "VeryLazy",
+  },
+  {
+    "tpope/vim-speeddating",
+    event = "VeryLazy",
+  },
 }
 
 return plugins
