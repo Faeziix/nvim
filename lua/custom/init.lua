@@ -71,3 +71,15 @@ vim.api.nvim_set_option('t_RT', '\27[23;2t')
 -- using a color theme with a background color in terminals such as
 -- kitty that do not support background color erase.
 vim.api.nvim_set_option('t_ut', '')
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+

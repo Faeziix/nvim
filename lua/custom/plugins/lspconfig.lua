@@ -43,6 +43,7 @@ return {
         "eslint",
         "html",
         "cssls",
+        "pyright",
       },
       handlers = {
         function(server)
@@ -102,8 +103,12 @@ return {
         vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-        vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-        vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+        vim.keymap.set("n", "[d",
+          "<cmd>lua vim.diagnostic.goto_prev{ float = { border = \"rounded\" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>",
+          opts)
+        vim.keymap.set("n", "]d",
+          "<cmd>lua vim.diagnostic.goto_next{ float = { border = \"rounded\" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>",
+          opts)
       end,
     })
 
@@ -112,34 +117,34 @@ return {
     end)
 
     vim.lsp.protocol.CompletionItemKind = {
-      "   (Text) ",
-      "   (Method)",
-      "   (Function)",
+      "   (Text) ",
+      "   (Method)",
+      " 󰊕  (Function)",
       "   (Constructor)",
-      " ﴲ  (Field)",
-      "[] (Variable)",
-      "   (Class)",
-      " ﰮ  (Interface)",
-      "   (Module)",
-      " 襁 (Property)",
+      "   (Field)",
+      " 󰫧  (Variable)",
+      " 󰌗  (Class)",
+      " 󰛀  (Interface)",
+      " 󰅩  (Module)",
+      " 󰖷  (Property)",
       "   (Unit)",
-      "   (Value)",
-      " 練 (Enum)",
-      "   (Keyword)",
+      " 󰇼  (Value)",
+      "   (Enum)",
+      "   (Keyword)",
       "   (Snippet)",
-      "   (Color)",
-      "   (File)",
-      "   (Reference)",
-      "   (Folder)",
+      "   (Color)",
+      "   (File)",
+      "   (Reference)",
+      " 󰉋  (Folder)",
       "   (EnumMember)",
-      " ﲀ  (Constant)",
-      " ﳤ  (Struct)",
+      " 󰞂  (Constant)",
+      " 󰟦  (Struct)",
       "   (Event)",
-      "   (Operator)",
-      "   (TypeParameter)",
+      " 󰃬  (Operator)",
+      " 󰊄  (TypeParameter)",
     }
 
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
