@@ -83,3 +83,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+vim.api.nvim_command('au BufNewFile,BufRead *.log set filetype=log')

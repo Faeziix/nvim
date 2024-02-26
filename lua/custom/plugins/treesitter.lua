@@ -19,8 +19,6 @@ return {
         use_languagetree = true,
       },
 
-      auto_install = true,
-
       indent = { enable = true },
     },
     config = function(_, opts)

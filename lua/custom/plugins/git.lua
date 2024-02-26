@@ -8,9 +8,12 @@ return {
       map.fugitive = {
         n = {
           ["<leader>gs"] = { ":Git<CR>", "Open Git Fugitive" },
+          ["<leader>gps"] = { ":Git push<CR>", "Open Git Fugitive" },
+          ["<leader>gpl"] = { ":Git pull<CR>", "Open Git Fugitive" },
           ["<leader>gc"] = { ":Telescope git_branches<CR>", "Open git branch" },
           ["<leader>gj"] = { ":diffget //2<CR>", "accept HEAD" },
           ["<leader>gk"] = { ":diffget //3<CR>", "accept New Change" },
+          ["<leader>grh"] = { ":Git reset --hard<CR>", "Reset (Hard)" },
         },
       }
     end,

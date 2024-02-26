@@ -10,6 +10,7 @@ M.general = {
     ["<leader>x"] = { ":bd<CR>", "Close the buffer" },
 
     ["n"] = { "nzz", "Go to next and center" },
+    ["N"] = { "Nzz", "Go to next and center" },
     ["<C-u>"] = { "<C-u>zz", "Go half page up" },
     ["<C-d>"] = { "<C-d>zz", "Go half page down" },
     ["<C-f>"] = { "<C-f>zz", "Go full page up" },
