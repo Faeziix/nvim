@@ -44,14 +44,14 @@ local plugins = {
     "junegunn/fzf",
     lazy = false,
   },
-  {
-    "echasnovski/mini.nvim",
-    version = false,
-    event = "VeryLazy",
-    config = function()
-      -- require("mini.ai").setup()
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.nvim",
+  --   version = false,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     -- require("mini.ai").setup()
+  --   end,
+  -- },
   {
     "alvan/vim-closetag",
     event = "VeryLazy",

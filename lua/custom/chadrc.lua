@@ -9,19 +9,19 @@ M.ui = {
       bg = "#181818",
     },
     Visual = {
-      bg = "#333333",
+      bg = "#444444",
     },
-    -- IndentBlanklineContextChar = {
-    --   fg = "#4b5263",
-    -- },
-    -- IndentBlanklineContextStart = {
-    --   bg = "#1b1b1b",
-    -- },
+    IndentBlanklineContextChar = {
+      fg = "#4b5263",
+    },
+    IndentBlanklineContextStart = {
+      bg = "#2f2f2f",
+    },
     Comment = {
       fg = "#777777",
     },
     LineNr = {
-      fg = "#6b7273",
+      -- fg = "#6b7273",
     },
   },
 }

@@ -44,6 +44,7 @@ return {
         "html",
         "cssls",
         "pyright",
+        "rust_analyzer",
       },
       handlers = {
         function(server)
@@ -82,6 +83,28 @@ return {
                   },
                 },
               },
+            },
+          }
+        end,
+        ["rust_analyzer"] = function()
+          lspconfig.rust_analyzer.setup {
+            settings = {
+              ["rust-analyzer"] = {
+                imports = {
+                  granularity = {
+                    group = "module",
+                  },
+                  prefix = "self",
+                },
+                cargo = {
+                  buildScripts = {
+                    enable = true,
+                  },
+                },
+                procMacro = {
+                  enable = true
+                },
+              }
             },
           }
         end,
