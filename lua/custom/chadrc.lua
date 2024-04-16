@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "onedark",
+  theme = "tokyodark",
   transparency = true,
   hl_override = {
     CursorLine = {
