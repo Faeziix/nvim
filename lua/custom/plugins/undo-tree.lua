@@ -12,7 +12,7 @@ return {
 
       map.undotree = {
         n = {
-          ["<leader>fu"] = { ":UndotreeToggle<cr>", "Toggle UndoTree" },
+          ["<leader>fu"] = { vim.cmd.UndotreeToggle, "Toggle UndoTree" },
         },
       }
     end,

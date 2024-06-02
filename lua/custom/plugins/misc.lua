@@ -20,21 +20,6 @@ local plugins = {
     end,
   },
   {
-    "vimwiki/vimwiki",
-    lazy = false,
-    init = function()
-      vim.g.vimwiki_ext2syntax = {
-        [".Rmd"] = "markdown",
-        [".rmd"] = "markdown",
-        [".md"] = "markdown",
-        [".markdown"] = "markdown",
-        [".mdown"] = "markdown",
-      }
-      vim.api.nvim_set_keymap("n", "<leader>v", ":VimwikiIndex", { noremap = true })
-      vim.g.vimwiki_list = { { path = "~/vimwiki", syntax = "markdown", ext = ".md" } }
-    end,
-  },
-  {
     "kevinhwang91/nvim-bqf",
     dependencies = "junegunn/fzf",
     event = "VeryLazy",
@@ -63,11 +48,11 @@ local plugins = {
         let g:closetag_xhtml_filetype = 'xhtml,jsx,tsx'
         let g:closetag_emptyTags_caseSensitive = 1
         let g:closetag_regions = {
-          \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-          \ 'javascript.jsx': 'jsxRegion',
-          \ }
+        \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+        \ 'javascript.jsx': 'jsxRegion',
+        \ }
         let g:closetag_shortcut = '>'
-      ]]
+        ]]
     end,
   },
   {
@@ -88,15 +73,15 @@ local plugins = {
       }
     end,
   },
-  {
-    "vigoux/notifier.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("notifier").setup {
-        -- You configuration here
-      }
-    end,
-  },
+  -- {
+  --   "vigoux/notifier.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("notifier").setup {
+  --       -- You configuration here
+  --     }
+  --   end,
+  -- },
   {
     "tpope/vim-unimpaired",
     event = "VeryLazy",

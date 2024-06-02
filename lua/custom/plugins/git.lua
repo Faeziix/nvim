@@ -8,12 +8,21 @@ return {
       map.fugitive = {
         n = {
           ["<leader>gs"] = { ":Git<CR>", "Open Git Fugitive" },
-          ["<leader>gps"] = { ":Git push<CR>", "Open Git Fugitive" },
-          ["<leader>gpl"] = { ":Git pull<CR>", "Open Git Fugitive" },
+          ["<leader>gp"] = { ":Git push<CR>", "Push to Origin" },
+          ["<leader>gP"] = { ":Git pull<CR>", "Pull from Origin" },
           ["<leader>gc"] = { ":Telescope git_branches<CR>", "Open git branch" },
           ["<leader>gj"] = { ":diffget //2<CR>", "accept HEAD" },
           ["<leader>gk"] = { ":diffget //3<CR>", "accept New Change" },
           ["<leader>grh"] = { ":Git reset --hard<CR>", "Reset (Hard)" },
+          ["<leader>gR"] = { ":Git rebase -i HEAD~10 <CR>", "Reset (Hard)" },
+          ["<leader>gL"] = {
+            "<cmd> Git log --all --decorate --oneline --graph <CR>",
+            "Git Log (all)"
+          },
+          ["<leader>g="] = {
+            "<cmd> Git push --force-with-lease <CR>",
+            "Git Push (force with lease)",
+          },
         },
       }
     end,
@@ -41,12 +50,12 @@ return {
     keys = {
       -- use [c and [c to navigate diffs (vim built in), see :h jumpto-diffs
       -- use ]x and [x to navigate conflicts
-      { "<leader>gdc", ":DiffviewOpen origin/main...HEAD", desc = "Compare commits" },
-      { "<leader>gdd", ":DiffviewClose<CR>", desc = "Close Diffview tab" },
-      { "<leader>gdh", ":DiffviewFileHistory %<CR>", desc = "File history" },
-      { "<leader>gdH", ":DiffviewFileHistory<CR>", desc = "Repo history" },
-      { "<leader>gdm", ":DiffviewOpen<CR>", desc = "Solve merge conflicts" },
-      { "<leader>gdo", ":DiffviewOpen main", desc = "DiffviewOpen" },
+      { "<leader>gdc", ":DiffviewOpen origin/main...HEAD",               desc = "Compare commits" },
+      { "<leader>gdd", ":DiffviewClose<CR>",                             desc = "Close Diffview tab" },
+      { "<leader>gdh", ":DiffviewFileHistory %<CR>",                     desc = "File history" },
+      { "<leader>gdH", ":DiffviewFileHistory<CR>",                       desc = "Repo history" },
+      { "<leader>gdm", ":DiffviewOpen<CR>",                              desc = "Solve merge conflicts" },
+      { "<leader>gdo", ":DiffviewOpen main",                             desc = "DiffviewOpen" },
       { "<leader>gdp", ":DiffviewOpen origin/main...HEAD --imply-local", desc = "Review current PR" },
       {
         "<leader>gdP",

@@ -5,6 +5,10 @@ return {
     event = "BufRead",
   },
   {
+    "nvim-treesitter/playground",
+    event = "BufRead",
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     init = function()
       require("core.utils").lazy_load "nvim-treesitter"
@@ -13,6 +17,7 @@ return {
     build = ":TSUpdate",
     opts = {
       ensure_installed = { "lua" },
+      ignore_install = { "org" },
 
       highlight = {
         enable = true,

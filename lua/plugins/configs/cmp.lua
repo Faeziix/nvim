@@ -113,6 +113,7 @@ local options = {
     { name = "path" },
     { name = "emoji" },
     { name = "cmp-tw2css" },
+    { name = "orgmode" }
   },
 }
 

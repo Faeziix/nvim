@@ -2,31 +2,33 @@
 local M = {}
 
 M.ui = {
-  theme = "rxyhn",
+  theme = "tokyonight",
   transparency = true,
   hl_override = {
     CursorLine = {
-      bg = "#181818",
+      bg = "black"
+    },
+    ["@comment"] = {
+      fg = "light_grey",
     },
     Visual = {
-      bg = "#444444",
-    },
-    IndentBlanklineContextChar = {
-      fg = "#4b5263",
-    },
-    IndentBlanklineContextStart = {
-      bg = "#2f2f2f",
-    },
-    Comment = {
-      fg = "#777777",
+      bg = "grey"
     },
     LineNr = {
-      -- fg = "#6b7273",
+      fg = "#6f7273",
+    },
+    ["@markup.italic"] = {
+      fg = "cyan",
+    },
+    ["@markup.strong"] = {
+      fg = "blue",
+    },
+    ["@markup.heading"] = {
+      fg = "yellow",
+      bg = "none",
     },
   },
 }
-
--- M.options = require "custom.options"
 
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
