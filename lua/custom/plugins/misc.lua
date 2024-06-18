@@ -90,6 +90,10 @@ local plugins = {
     "tpope/vim-speeddating",
     event = "VeryLazy",
   },
+  {
+    "djoshea/vim-autoread",
+    event = "BufRead",
+  },
 }
 
 return plugins

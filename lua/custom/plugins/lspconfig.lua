@@ -74,17 +74,18 @@ return {
           }
         end,
         ["tailwindcss"] = function()
-          lspconfig.tailwindcss.setup {
+          lspconfig.tailwindcss.setup({
             settings = {
               tailwindCSS = {
                 experimental = {
                   classRegex = {
-                    ".*style",
+                    { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                    { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
                   },
                 },
               },
             },
-          }
+          })
         end,
         ["rust_analyzer"] = function()
           lspconfig.rust_analyzer.setup {
