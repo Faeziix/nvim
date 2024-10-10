@@ -5,10 +5,6 @@ return {
     event = "BufRead",
   },
   {
-    "nvim-treesitter/playground",
-    event = "BufRead",
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     init = function()
       require("core.utils").lazy_load "nvim-treesitter"

@@ -15,9 +15,9 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = "VeryLazy",
     config = function(opts)
-      vim.api.nvim_set_hl(0, 'h1', { fg = '#faaaaf', bg = '#2e2e2f', bold = true })
-      vim.api.nvim_set_hl(0, 'h2', { fg = '#bb9af7', bg = '#2e2e3e', bold = true })
-      vim.api.nvim_set_hl(0, 'h3', { fg = '#7dcfff', bg = '#2e3e4e', bold = true })
+      vim.api.nvim_set_hl(0, 'h1', { fg = '#7dcfff', bg = '#2e2e2f', bold = true })
+      vim.api.nvim_set_hl(0, 'h2', { fg = '#faaaaf', bg = '#2e2e3e', bold = true })
+      vim.api.nvim_set_hl(0, 'h3', { fg = '#bb9af7', bg = '#2e3e4e', bold = true })
       vim.api.nvim_set_hl(0, 'h4', { fg = '#e0af68', bg = '#3e3e2e', bold = true })
       vim.api.nvim_set_hl(0, 'h5', { fg = '#9ece6a', bg = '#2e3e2e', bold = true })
 
@@ -29,6 +29,11 @@ return {
             backgrounds = { 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' },
           },
         },
+        win_options = {
+          concealcursor = {
+            rendered = '',
+          },
+        }
       })
     end
   },
@@ -44,5 +49,4 @@ return {
       vim.treesitter.language.register('markdown', 'vimwiki')
     end,
   },
-
 }
