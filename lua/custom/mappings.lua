@@ -17,7 +17,7 @@ M.general = {
     ["<C-b>"] = { "<C-b>zz", "Go full page down" },
 
     ["<leader>q"] = { ":q<CR>" },
-    ["<leader>a"] = {
+    ["<leader>A"] = {
       function()
         require("custom.function.toggle_qf").toggle_qf()
       end,

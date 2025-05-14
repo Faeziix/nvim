@@ -39,7 +39,7 @@ return {
     require("mason").setup {}
     require("mason-lspconfig").setup {
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "eslint",
         "html",
         "cssls",
@@ -52,6 +52,56 @@ return {
             capabilities = lsp_capabilities,
           }
         end,
+        ["volar"] = function()
+          require("lspconfig").volar.setup({
+            -- NOTE: Uncomment to enable volar in file types other than vue.
+            -- (Similar to Takeover Mode)
+
+            -- filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact", "json" },
+
+            -- NOTE: Uncomment to restrict Volar to only Vue/Nuxt projects. This will enable Volar to work alongside other language servers (tsserver).
+
+            -- root_dir = require("lspconfig").util.root_pattern(
+            --   "vue.config.js",
+            --   "vue.config.ts",
+            --   "nuxt.config.js",
+            --   "nuxt.config.ts"
+            -- ),
+            init_options = {
+              vue = {
+                hybridMode = false,
+              },
+              -- NOTE: This might not be needed. Uncomment if you encounter issues.
+
+              -- typescript = {
+              --   tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+              -- },
+            },
+            settings = {
+              typescript = {
+                inlayHints = {
+                  enumMemberValues = {
+                    enabled = true,
+                  },
+                  functionLikeReturnTypes = {
+                    enabled = true,
+                  },
+                  propertyDeclarationTypes = {
+                    enabled = true,
+                  },
+                  parameterTypes = {
+                    enabled = true,
+                    suppressWhenArgumentMatchesName = true,
+                  },
+                  variableTypes = {
+                    enabled = true,
+                  },
+                },
+              },
+            },
+          })
+        end,
+
         ["lua_ls"] = function()
           lspconfig.lua_ls.setup {
             settings = {
@@ -63,8 +113,8 @@ return {
             },
           }
         end,
-        ["tsserver"] = function()
-          lspconfig.tsserver.setup {
+        ["ts_ls"] = function()
+          lspconfig.ts_ls.setup {
             capabilities = lsp_capabilities,
             settings = {
               completions = {
@@ -110,6 +160,19 @@ return {
           }
         end,
       },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+          },
+        },
+      }
     }
 
     vim.api.nvim_create_autocmd("LspAttach", {

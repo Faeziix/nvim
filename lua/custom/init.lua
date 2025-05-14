@@ -14,6 +14,7 @@ vim.filetype.add {
 
 vim.treesitter.language.register("mdx", "markdown")
 
+
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
@@ -84,3 +85,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_command('au BufNewFile,BufRead *.log set filetype=log')
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"*.md", "*.markdown"},
+  callback = function()
+    vim.bo.filetype = "lsp_markdown"
+  end
+})
