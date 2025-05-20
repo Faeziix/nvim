@@ -12,7 +12,6 @@ return {
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },
-    words = { enabled = true },
     styles = {
       notification = { wo = { wrap = true } }
     },
