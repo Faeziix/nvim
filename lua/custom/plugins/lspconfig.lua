@@ -53,7 +53,7 @@ return {
           }
         end,
         ["volar"] = function()
-          require("lspconfig").volar.setup({
+          vim.lsp.config("valor", {
             -- NOTE: Uncomment to enable volar in file types other than vue.
             -- (Similar to Takeover Mode)
 
@@ -124,18 +124,18 @@ return {
           }
         end,
         ["tailwindcss"] = function()
-          lspconfig.tailwindcss.setup({
+          lspconfig.tailwindcss.setup {
             settings = {
               tailwindCSS = {
                 experimental = {
                   classRegex = {
                     { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-                    { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+                    { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
                   },
                 },
               },
             },
-          })
+          }
         end,
         ["rust_analyzer"] = function()
           lspconfig.rust_analyzer.setup {
@@ -153,9 +153,9 @@ return {
                   },
                 },
                 procMacro = {
-                  enable = true
+                  enable = true,
                 },
-              }
+              },
             },
           }
         end,
@@ -166,13 +166,13 @@ return {
           lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
-      }
+      },
     }
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -190,12 +190,18 @@ return {
         vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-        vim.keymap.set("n", "[d",
-          "<cmd>lua vim.diagnostic.goto_prev{ float = { border = \"rounded\" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>",
-          opts)
-        vim.keymap.set("n", "]d",
-          "<cmd>lua vim.diagnostic.goto_next{ float = { border = \"rounded\" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>",
-          opts)
+        vim.keymap.set(
+          "n",
+          "[d",
+          '<cmd>lua vim.diagnostic.goto_prev{ float = { border = "rounded" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>',
+          opts
+        )
+        vim.keymap.set(
+          "n",
+          "]d",
+          '<cmd>lua vim.diagnostic.goto_next{ float = { border = "rounded" }, severity = { min = vim.diagnostic.severity.WARN } }<cr>',
+          opts
+        )
       end,
     })
 

@@ -1,21 +1,26 @@
 return {
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   ft = "rust",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   opts = {
+  --     tools = {
+  --       inlay_hints = {
+  --         show_parameter_hints = true,
+  --         parameter_hints_prefix = " ",
+  --         other_hints_prefix = " ",
+  --       },
+  --     },
+  --     server = {
+  --       on_attach = require("plugins.configs.lspconfig").on_attach,
+  --       capabilities = require("plugins.configs.lspconfig").capabilities,
+  --     },
+  --   },
+  -- },
   {
-    "simrat39/rust-tools.nvim",
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
     ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = {
-      tools = {
-        inlay_hints = {
-          show_parameter_hints = true,
-          parameter_hints_prefix = " ",
-          other_hints_prefix = " ",
-        },
-      },
-      server = {
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-      },
-    },
   },
   {
     "saecki/crates.nvim",
@@ -24,5 +29,5 @@ return {
     config = function()
       require("crates").setup()
     end,
-  }
+  },
 }

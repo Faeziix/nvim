@@ -22,9 +22,10 @@ return {
       javascript = { "prettierd" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },
-      javascriptreact = { "prettierd", },
-      css = { "prettierd", },
-      html = { "prettierd", },
+      javascriptreact = { "prettierd" },
+      css = { "prettierd" },
+      html = { "prettierd" },
+      elixir = { "mix_format" },
       markdown = {
         "markdownlint",
         "mdformat",
@@ -37,6 +38,8 @@ return {
         "cbfmt",
         "prettierd",
       },
+      rust = { "rustfmt" },
+      astro = { "prettier", stop_after_first = true },
       ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
     },
@@ -44,6 +47,11 @@ return {
     formatters = {
       shfmt = {
         prepend_args = { "-i", "2" },
+      },
+      mix_format = {
+        command = "mix",
+        args = { "format", "-" },
+        stdin = true,
       },
     },
   },

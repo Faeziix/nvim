@@ -41,7 +41,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-require("lspconfig").lua_ls.setup {
+vim.lsp.config("lua_ls", {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
@@ -62,6 +62,14 @@ require("lspconfig").lua_ls.setup {
       },
     },
   },
-}
+})
+
+vim.lsp.config("expert", {
+  cmd = { "expert", "--stdio" },
+  root_markers = { "mix.exs", ".git" },
+  filetypes = { "elixir", "eelixir", "heex" },
+})
+
+vim.lsp.enable "expert"
 
 return M

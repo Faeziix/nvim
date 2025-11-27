@@ -24,7 +24,7 @@ M.ui = {
       fg = "blue",
     },
     ["@markup.heading"] = {
-      fg = "yellow",
+      fg = "blue",
       bg = "none",
     },
   },
