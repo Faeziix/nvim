@@ -13,12 +13,11 @@ local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local config = require "telescope.config"
 local make_entry = require "telescope.make_entry"
-local devicons = require "nvim-web-devicons"
 -- local options = require "plugins.configs.telescope"
 
 local defaults = {
   prompt_title = "Recents",
-  command = "fd --type f --hidden --follow --exclude .git --exclude node_modules",
+  command = "fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' --exclude '*.gif' --exclude '*.webp' --exclude '*.svg' --exclude '*.ico' --exclude '*.bmp' --exclude '*.tiff' --exclude '*.avif'",
   file_ignore_patterns = { "node_modules" },
   file_previewer = require("telescope.previewers").vim_buffer_cat.new,
   grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
@@ -83,10 +82,12 @@ return telescope.register_extension {
       end)
       pickers
         .new(options, {
-          finder = finders.new_table(entries),
+          finder = finders.new_table({
+            results = entries,
+            entry_maker = options.entry_maker,
+          }),
           sorter = config.values.file_sorter(options),
           previewer = config.values.file_previewer(options),
-          entry_maker = options.entry_maker,
         })
         :find()
     end,

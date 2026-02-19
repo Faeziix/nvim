@@ -25,7 +25,7 @@ return {
       javascriptreact = { "prettierd" },
       css = { "prettierd" },
       html = { "prettierd" },
-      elixir = { "mix_format" },
+      cpp = { "clang_format" },
       markdown = {
         "markdownlint",
         "mdformat",

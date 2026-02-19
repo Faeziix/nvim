@@ -9,7 +9,7 @@ local plugins = {
       }
     end,
   },
-  { "wakatime/vim-wakatime", lazy = false },
+  -- { "wakatime/vim-wakatime", lazy = false },
   {
     "numToStr/Comment.nvim",
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
@@ -29,14 +29,15 @@ local plugins = {
     "junegunn/fzf",
     lazy = false,
   },
-  -- {
-  --   "echasnovski/mini.nvim",
-  --   version = false,
-  --   event = "VeryLazy",
-  --   config = function()
-  --     -- require("mini.ai").setup()
-  --   end,
-  -- },
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      -- require("mini.ai").setup()
+      require("mini.cursorword").setup()
+    end,
+  },
   {
     "alvan/vim-closetag",
     event = "VeryLazy",
@@ -55,14 +56,6 @@ local plugins = {
         ]]
     end,
   },
-  {
-    "mattn/emmet-vim",
-    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "xml" },
-    init = function()
-      vim.g.user_emmet_leader_key = "<C-Z>"
-    end,
-  },
-
   {
     "ahmedkhalf/project.nvim",
     config = function()

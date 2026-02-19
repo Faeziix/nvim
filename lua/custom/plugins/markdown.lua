@@ -19,6 +19,7 @@ return {
     ---@type render.md.UserConfig
     opts = {
       checkbox = { checked = { scope_highlight = "@markup.strikethrough" } },
+      anti_conceal = { enabled = false },
     },
   },
   {

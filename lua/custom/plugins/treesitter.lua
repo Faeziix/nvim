@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     after = "nvim-treesitter",
-    event = "BufRead",
+    -- event = "BufRead",
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -15,8 +15,19 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     opts = {
-      ensure_installed = { "lua" },
+      ensure_installed = {
+        "lua",
+        "bash",
+        "json",
+        "markdown",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+      },
       ignore_install = { "org" },
+      auto_install = true,
       highlight = {
         enable = true,
         use_languagetree = true,
@@ -28,10 +39,10 @@ return {
           lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
       },
