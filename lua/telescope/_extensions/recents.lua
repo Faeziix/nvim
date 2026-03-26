@@ -17,7 +17,7 @@ local make_entry = require "telescope.make_entry"
 
 local defaults = {
   prompt_title = "Recents",
-  command = "fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' --exclude '*.gif' --exclude '*.webp' --exclude '*.svg' --exclude '*.ico' --exclude '*.bmp' --exclude '*.tiff' --exclude '*.avif'",
+  command = "fd --type f --hidden --follow --exclude .git --exclude .next --exclude node_modules --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' --exclude '*.gif' --exclude '*.webp' --exclude '*.svg' --exclude '*.ico' --exclude '*.bmp' --exclude '*.tiff' --exclude '*.avif'",
   file_ignore_patterns = { "node_modules" },
   file_previewer = require("telescope.previewers").vim_buffer_cat.new,
   grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
