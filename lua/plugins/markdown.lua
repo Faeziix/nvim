@@ -1,14 +1,12 @@
 return {
-  {
-    {
-      "iamcco/markdown-preview.nvim",
-      ft = "markdown",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = function()
-        vim.fn["mkdp#util#install"]()
-      end,
-    },
-  },
+  -- {
+  --     "iamcco/markdown-preview.nvim",
+  --     ft = "markdown",
+  --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --     build = function()
+  --       vim.fn["mkdp#util#install"]()
+  --     end,
+  -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
@@ -32,9 +30,5 @@ return {
       vim.g.vimwiki_global_ext = 0
       vim.treesitter.language.register("markdown", "vimwiki")
     end,
-  },
-  {
-    "nvim-treesitter/playground",
-    lazy = false,
   },
 }

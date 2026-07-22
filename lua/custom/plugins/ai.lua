@@ -29,15 +29,15 @@ return {
   --     end, { expr = true, silent = true })
   --   end,
   -- },
-  {
-    "supermaven-inc/supermaven-nvim",
-    event = "BufRead",
-    opts = {
-      keymaps = {
-        accept_suggestion = "<C-K>",
-        clear_suggestion = "<C-]>",
-        accept_word = "<C-J>",
-      },
-    },
-  },
+  -- {
+  --   "supermaven-inc/supermaven-nvim",
+  --   event = "BufRead",
+  --   opts = {
+  --     keymaps = {
+  --       accept_suggestion = "<C-K>",
+  --       clear_suggestion = "<C-]>",
+  --       accept_word = "<C-J>",
+  --     },
+  --   },
+  -- },
 }

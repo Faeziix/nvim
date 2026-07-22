@@ -1,3 +1,10 @@
+local _orig_get_node_text = vim.treesitter.get_node_text
+vim.treesitter.get_node_text = function(node, source, opts)
+  if node == nil then return "" end
+  local ok, result = pcall(_orig_get_node_text, node, source, opts)
+  return ok and result or ""
+end
+
 -------------------------------------- options ------------------------------------------
 vim.opt.cursorline = true
 vim.opt.so = 10

@@ -112,7 +112,6 @@ local options = {
     { name = "nvim_lua" },
     { name = "path" },
     { name = "emoji" },
-    { name = "cmp-tw2css" },
     { name = "orgmode" }
   },
 }
