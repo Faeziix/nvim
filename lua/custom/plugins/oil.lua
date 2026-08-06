@@ -33,8 +33,8 @@ return {
       },
     },
 
-    -- init = function()
-    --   vim.keymap.set("n", "<leader>e", ":Oil <CR>", { desc = "Open Oil (explorer)" })
-    -- end,
+    init = function()
+      vim.keymap.set("n", "<leader>E", ":Oil <CR>", { desc = "Open Oil (explorer)" })
+    end,
   },
 }

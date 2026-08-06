@@ -161,22 +161,6 @@ local default_plugins = {
         end,
       },
 
-      -- autopairing of (){}[] etc
-      -- {
-      --   "windwp/nvim-autopairs",
-      --   opts = {
-      --     fast_wrap = {},
-      --     disable_filetype = { "TelescopePrompt", "vim" },
-      --   },
-      --   config = function(_, opts)
-      --     require("nvim-autopairs").setup(opts)
-      --
-      --     -- setup cmp for autopairs
-      --     local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      --     require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-      --   end,
-      -- },
-
       -- cmp sources plugins
       {
         "saadparwaiz1/cmp_luasnip",
@@ -213,24 +197,6 @@ local default_plugins = {
           -- { name = "cmdline_history" },
         }),
       })
-    end,
-  },
-
-  {
-    "numToStr/Comment.nvim",
-    keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
-    },
-    init = function()
-      require("core.utils").load_mappings "comment"
-    end,
-    config = function(_, opts)
-      require("Comment").setup(opts)
     end,
   },
 

@@ -19,7 +19,7 @@ vim.filetype.add {
   extension = { mdx = "mdx" },
 }
 
--- vim.treesitter.language.register("mdx", "markdown")
+vim.treesitter.language.register("markdown", "mdx")
 
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -32,21 +32,14 @@ autocmd("FileType", {
 })
 
 -- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
+-- See `:help vim.hl.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
   group = highlight_group,
   pattern = '*',
 })
 
 vim.api.nvim_command('au BufNewFile,BufRead *.log set filetype=log')
-
--- vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
---   pattern = {"*.md", "*.markdown"},
---   callback = function()
---     vim.bo.filetype = "lsp_markdown"
---   end
--- })

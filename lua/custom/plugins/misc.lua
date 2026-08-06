@@ -9,10 +9,20 @@ local plugins = {
       }
     end,
   },
-  -- { "wakatime/vim-wakatime", lazy = false },
   {
     "numToStr/Comment.nvim",
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
+    keys = {
+      { "gcc", mode = "n", desc = "Comment toggle current line" },
+      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n", desc = "Comment toggle current block" },
+      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+    },
+    init = function()
+      require("core.utils").load_mappings "comment"
+    end,
     config = function()
       require("Comment").setup {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -20,17 +30,11 @@ local plugins = {
     end,
   },
   {
-    "kevinhwang91/nvim-bqf",
-    dependencies = "junegunn/fzf",
-    event = "VeryLazy",
-    keys = { "gr", "gd", "gD" },
-  },
-  {
     "junegunn/fzf",
     lazy = false,
   },
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     version = false,
     event = "VeryLazy",
     config = function()
@@ -66,15 +70,6 @@ local plugins = {
       }
     end,
   },
-  -- {
-  --   "vigoux/notifier.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("notifier").setup {
-  --       -- You configuration here
-  --     }
-  --   end,
-  -- },
   {
     "tpope/vim-unimpaired",
     event = "VeryLazy",
