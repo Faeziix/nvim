@@ -56,6 +56,7 @@ local function set_highlights()
   hl(0, "GitLogRemote", { fg = "#F7768E", bold = true }) -- remote branch: red
   hl(0, "GitLogTag",    { fg = "#E0AF68", bold = true }) -- tag: yellow bold
   hl(0, "GitLogHead",   { fg = "#7DCFFF", bold = true }) -- HEAD: bright cyan bold
+  hl(0, "GitLogPR",     { fg = "#1A1B26", bg = "#9ECE6A", bold = true }) -- #123 PR/issue badge
 end
 
 -- Highlight one line with extmarks (independent of vim `syntax`, and drawn on top
@@ -63,6 +64,17 @@ end
 local function hl_line(buf, row, line)
   local function put(group, s, e) -- s,e are 0-based [start, end) byte cols
     pcall(vim.api.nvim_buf_set_extmark, buf, ns, row, s, { end_col = e, hl_group = group })
+  end
+
+  -- GitHub-style PR/issue references (#123) anywhere on the line → green badge
+  do
+    local i = 1
+    while true do
+      local s, e = line:find("#%d+", i)
+      if not s then break end
+      put("GitLogPR", s - 1, e)
+      i = e + 1
+    end
   end
 
   local gs, ge = line:find("^[*|/\\ _.]+") -- graph glyphs at the start of the line
@@ -553,8 +565,6 @@ return {
   cmd = { "G", "Git", "Gvdiffsplit", "GlLog" },
   keys = {
     { "<leader>gs", M.status_toggle, desc = "Git Status (toggle)" },
-    { "<leader>gl", M.toggle, desc = "Git Log (toggle)" },
-    { "<leader>gL", "<cmd>GlLog<CR>", desc = "Git Advanced Log" },
     { "<leader>gf", "<cmd>Git fetch<CR>", desc = "Git Fetch" },
     { "<leader>gp", "<cmd>Git pull<CR>", desc = "Git Pull" },
     { "<leader>gP", "<cmd>Git push<CR>", desc = "Git Push" },
